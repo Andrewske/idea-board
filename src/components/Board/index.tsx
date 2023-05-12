@@ -1,20 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
+import { ListType } from '../../types';
+import List from '../List';
 
-type BoardProps = {
-  globalState: [];
-  setGlobalState: () => void;
-};
+interface BoardTypes {
+  globalState: ListType[];
+  setGlobalState: (globalState: ListType[]) => void;
+}
 
-type ListObject = {
-  id: string;
-};
-
-const Board = ({ globalState, setGlobalState }: BoardProps) => {
-  // Might not be necessary try again with a media query
-  //   const { width } = useWindowSize();
-
-  //   const { scrollLeft, scrollRight } = useScroll();
-
+const Board = ({ globalState, setGlobalState }: BoardTypes) => {
   const createList = () => {
     setGlobalState([
       ...globalState,
@@ -22,11 +15,16 @@ const Board = ({ globalState, setGlobalState }: BoardProps) => {
     ]);
   };
 
+  // Might not be necessary try again with a media query
+  //   const { width } = useWindowSize();
+
+  //   const { scrollLeft, scrollRight } = useScroll();
+
   const deleteList = (id: string) => {
-    setGlobalState([globalState.filter((list) => list?.id !== id)]);
+    setGlobalState(globalState.filter((list) => list?.id !== id));
   };
 
-  const updateList = (list: ListObject) => {
+  const updateList = (list: ListType) => {
     const updatedList = globalState.map((item) => {
       if (item.id === list.id) {
         return list;
@@ -64,14 +62,13 @@ const Board = ({ globalState, setGlobalState }: BoardProps) => {
         >
           {globalState.length > 0
             ? globalState.map((list, i) => (
-                // <List
-                //   key={list.id}
-                //   state={list}
-                //   setState={updateList}
-                //   deleteList={deleteList}
-                //   isFocused={i === 0 ? true : false}
-                // />
-                <div />
+                <List
+                  key={list.id}
+                  listState={list}
+                  setListState={updateList}
+                  deleteList={deleteList}
+                  isFocused={i === 0 ? true : false}
+                />
               ))
             : null}
         </div>

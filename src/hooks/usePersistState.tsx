@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
+import { ListType } from '../types';
 
-type PersistStateProps = {
+interface PersistStateProps {
   storeKey: string;
-  initialState: [];
-};
+  initialState: ListType[];
+}
 
 const usePersistState = ({
   storeKey = '',
   initialState,
-}: PersistStateProps) => {
+}: PersistStateProps): [ListType[], (newState: ListType[]) => void] => {
   const [state, setInternalState] = useState(initialState);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const usePersistState = ({
     }
   }, [storeKey]);
 
-  const setState = (newState: []) => {
+  const setState = (newState: ListType[]) => {
     localStorage.setItem(storeKey, JSON.stringify(newState));
     setInternalState(newState);
   };
