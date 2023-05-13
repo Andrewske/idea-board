@@ -11,6 +11,7 @@ interface BoardTypes {
 }
 
 const Board = ({ globalState, setGlobalState }: BoardTypes) => {
+  // create a new list and save it in the global state
   const createList = () => {
     setGlobalState([
       ...globalState,
@@ -23,30 +24,26 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
   };
 
   const updateList = (list: ListType) => {
+    // loop through lists and replace old list with new list
     const updatedList = globalState.map((item) => {
-      if (item.id === list.id) {
-        return list;
-      }
-      return item;
+      return item.id === list.id ? list : item;
     });
+
     setGlobalState(updatedList);
   };
 
   return (
     <div className="wrapper">
       <Header createList={createList} />
-      <div
-        id="board"
-        className="container"
-      >
+      <div className="container">
         {globalState.length > 0
-          ? globalState.map((list, i) => (
+          ? globalState.map((list, index) => (
               <List
                 key={list.id}
                 listState={list}
                 setListState={updateList}
                 deleteList={deleteList}
-                isFocused={i === 0 ? true : false}
+                isFocused={index === 0}
               />
             ))
           : null}
