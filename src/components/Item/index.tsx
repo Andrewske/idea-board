@@ -3,6 +3,7 @@ import { format } from 'date-fns';
 import { ItemType } from '../../types';
 
 import ResizeTextArea from '../ResizeTextArea';
+import './styles.scss';
 
 interface ListItemType {
   data: ItemType;

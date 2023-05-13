@@ -7,6 +7,7 @@ import ListMenu from '../ListMenu';
 import Item from '../Item';
 
 import { ListType, ItemType } from '../../types';
+import './styles.scss';
 
 interface ListComponent {
   listState: ListType;

@@ -13,7 +13,7 @@ const usePersistState = ({
   const [state, setInternalState] = useState(initialState);
 
   useEffect(() => {
-    const persistedState = JSON.parse(localStorage.getItem(storeKey) ?? '{}');
+    const persistedState = JSON.parse(localStorage.getItem(storeKey) ?? '[]');
 
     if (persistedState) {
       setInternalState(persistedState);

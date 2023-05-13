@@ -1,0 +1,86 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  min-height: 300px;
+  position: relative;
+  min-width: 250px;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #323f4b;
+  margin: 1rem;
+  padding: 1rem 0.5rem;
+
+  .list-header {
+    width: 100%;
+    display: flex;
+    font-size: 1.25rem;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+
+    .list-title {
+      flex: 1;
+      height: 3rem;
+      background: inherit;
+      border: none;
+      text-align: center;
+      color: #f5f7fa;
+      font-size: 1.1rem;
+    }
+  }
+
+  .edit-item-title {
+    flex: 2;
+    width: 100%;
+    margin: auto;
+    text-align-last: center;
+    border: none;
+    border-radius: 0;
+    border-bottom: solid 1px #323f4b !important;
+    background: inherit;
+    color: inherit;
+    padding: 0.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .list-add-item {
+    color: #1f2933;
+    position: relative;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+
+    .list-item-text-area {
+      width: 100%;
+      padding: 0.5rem 0.5rem 1.5rem 0.5rem;
+      border: none;
+      box-sizing: border-box;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .list-add-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .char-length {
+        font-size: 0.75rem;
+        color: #1f2933;
+        margin: 0;
+        text-align: right;
+      }
+    }
+  }
+}

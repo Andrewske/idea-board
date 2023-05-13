@@ -14,12 +14,12 @@ function App() {
   });
 
   return (
-    <main>
+    <>
       <Board
         globalState={globalState}
         setGlobalState={setGlobalState}
       />
-    </main>
+    </>
   );
 }
 

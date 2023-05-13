@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles.scss';
 
 interface ListMenuType {
   sortList: (type: 'title' | 'createdAt', dir: string) => void;

@@ -1,6 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ListType } from '../../types';
+
+import Header from '../Header';
 import List from '../List';
+import './styles.scss';
 
 interface BoardTypes {
   globalState: ListType[];
@@ -14,11 +17,6 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
       { id: uuidv4(), title: 'new title', items: [] },
     ]);
   };
-
-  // Might not be necessary try again with a media query
-  //   const { width } = useWindowSize();
-
-  //   const { scrollLeft, scrollRight } = useScroll();
 
   const deleteList = (id: string) => {
     setGlobalState(globalState.filter((list) => list?.id !== id));
@@ -35,53 +33,23 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
   };
 
   return (
-    <div>
-      <header className="header">
-        <img
-          className="icon"
-          src="/icons/icons8-add-50.png"
-          alt="delete"
-          onClick={createList}
-        />
-      </header>
-      <div className="main-container">
-        {/* {width > 400 && (
-          <div className="icon-btn">
-            <img
-              className="icon"
-              src="/icons/icons8-back-arrow-50.png"
-              alt="delete"
-              onClick={scrollLeft}
-            />
-          </div>
-        )} */}
-
-        <div
-          id="board"
-          className="board"
-        >
-          {globalState.length > 0
-            ? globalState.map((list, i) => (
-                <List
-                  key={list.id}
-                  listState={list}
-                  setListState={updateList}
-                  deleteList={deleteList}
-                  isFocused={i === 0 ? true : false}
-                />
-              ))
-            : null}
-        </div>
-        {/* {width > 400 && (
-          <div className="icon-btn right">
-            <img
-              className="icon"
-              src="/icons/icons8-circled-right-50.png"
-              alt="delete"
-              onClick={scrollRight}
-            />
-          </div>
-        )} */}
+    <div className="wrapper">
+      <Header createList={createList} />
+      <div
+        id="board"
+        className="container"
+      >
+        {globalState.length > 0
+          ? globalState.map((list, i) => (
+              <List
+                key={list.id}
+                listState={list}
+                setListState={updateList}
+                deleteList={deleteList}
+                isFocused={i === 0 ? true : false}
+              />
+            ))
+          : null}
       </div>
     </div>
   );
