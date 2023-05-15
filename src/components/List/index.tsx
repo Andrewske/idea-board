@@ -16,12 +16,14 @@ interface ListComponent {
   isFocused: boolean;
 }
 
+const date = new Date();
+
 const initialItemState = {
   id: null,
   title: 'New Task',
   description: '',
-  createdAt: new Date(),
-  updatedAt: new Date(),
+  createdAt: date,
+  updatedAt: date,
 };
 
 const List = ({
