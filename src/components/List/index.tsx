@@ -16,14 +16,12 @@ interface ListComponent {
   isFocused: boolean;
 }
 
-const date = new Date();
-
 const initialItemState = {
   id: null,
   title: 'New Task',
   description: '',
-  createdAt: date,
-  updatedAt: date,
+  createdAt: null,
+  updatedAt: null,
 };
 
 const List = ({
@@ -62,9 +60,14 @@ const List = ({
       | React.MouseEvent<HTMLButtonElement>
   ) => {
     e.preventDefault();
+    const date = new Date();
+
     setListState({
       ...listState,
-      items: [...listState.items, { ...item, id: uuidv4() }],
+      items: [
+        ...listState.items,
+        { ...item, id: uuidv4(), createdAt: date, updatedAt: date },
+      ],
     });
     setItem(initialItemState);
   };
@@ -88,20 +91,23 @@ const List = ({
   };
 
   const sortList = (type: 'title' | 'createdAt', dir: string) => {
-    if (listState.items.length > 1) {
-      let sortedItems;
-      if (dir === 'asc') {
-        sortedItems = listState.items.sort((a, b) =>
-          a[type] > b[type] ? 1 : -1
-        );
-      } else {
-        sortedItems = listState.items.sort((a, b) =>
-          a[type] > b[type] ? -1 : 1
-        );
-      }
-
-      setListState({ ...listState, items: sortedItems });
+    if (listState.items.length <= 1) {
+      return;
     }
+
+    const sortedItems = listState.items.slice().sort((a, b) => {
+      if (type === 'createdAt') {
+        return dir === 'asc'
+          ? new Date(a[type]).valueOf() - new Date(b[type]).valueOf()
+          : new Date(b[type]).valueOf() - new Date(a[type]).valueOf();
+      } else {
+        return dir === 'asc'
+          ? a[type].localeCompare(b[type])
+          : b[type].localeCompare(a[type]);
+      }
+    });
+
+    setListState({ ...listState, items: sortedItems });
   };
 
   return (

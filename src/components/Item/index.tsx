@@ -39,8 +39,8 @@ const ListItem = ({ data, editItem, deleteItem }: ListItemType) => {
       />
       {openTime && (
         <div className="list-item-time">
-          <p>Created At: {format(data.createdAt, 'yyyy-MM-DD h:mm a')}</p>
-          <p>Updated At: {format(data.updatedAt, 'yyyy-MM-DD h:mm a')}</p>
+          <p>Created At: {format(data.createdAt, 'yyyy-MM-dd h:mm a')}</p>
+          <p>Updated At: {format(data.updatedAt, 'yyyy-MM-dd h:mm a')}</p>
         </div>
       )}
       <span className="list-item-footer">

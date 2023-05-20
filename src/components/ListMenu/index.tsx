@@ -42,7 +42,7 @@ const ListMenu = ({ sortList, deleteList }: ListMenuType) => {
         </span>
         <span
           className="menu-item"
-          onClick={() => sortList('title', 'desc')}
+          onClick={() => sortList('title', 'asc')}
         >
           <img
             className="menu-item-icon"
@@ -52,7 +52,7 @@ const ListMenu = ({ sortList, deleteList }: ListMenuType) => {
         </span>
         <span
           className="menu-item"
-          onClick={() => sortList('title', 'asc')}
+          onClick={() => sortList('title', 'desc')}
         >
           <img
             className="menu-item-icon"

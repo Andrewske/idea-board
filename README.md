@@ -22,6 +22,10 @@ To create a new idea, click the "+" button in the top middle corner of the board
 
 To sort ideas by creation date or alphabetically, click the corresponding button in the top left corner of the board.
 
+You can tab through to access text areas and the submit button
+
+Ctrl+Enter will submit a new item
+
 ## Testing
 
 The project includes a suite of tests that can be run using yarn test. These tests cover the functionality of creating, editing, and deleting ideas, as well as sorting by date and alphabetically.
@@ -32,4 +36,4 @@ Idea Board uses the localStorage API to persist the current state when the page 
 
 ## Credits
 
-This project was built by Kevin Andrews as a portfolio project. Feel free to use it as inspiration for your own projects or to contribute to the codebase.
+This project was built by Kevin Andrews as a portfolio project
