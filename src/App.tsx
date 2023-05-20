@@ -3,6 +3,7 @@ import './App.css';
 
 // Components
 import Board from './components/Board';
+import Footer from './components/Footer';
 
 // Hooks
 import usePersistState from './hooks/usePersistState';
@@ -19,6 +20,7 @@ function App() {
         globalState={globalState}
         setGlobalState={setGlobalState}
       />
+      <Footer />
     </>
   );
 }

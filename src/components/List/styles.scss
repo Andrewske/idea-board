@@ -21,12 +21,14 @@
 
     .list-title {
       flex: 1;
-      height: 3rem;
+      min-height: 3rem;
       background: inherit;
       border: none;
       text-align: center;
       color: #f5f7fa;
       font-size: 1.1rem;
+      word-wrap: break-word;
+      max-width: 250px;
     }
   }
 

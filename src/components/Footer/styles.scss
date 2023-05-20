@@ -1,0 +1,19 @@
+.footer {
+  position: sticky;
+  bottom: 1rem;
+  left: 1rem;
+  color: white;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  height: 1.25rem;
+  width: 1.25rem;
+
+  &:hover {
+    transform: scale(1.25);
+  }
+}

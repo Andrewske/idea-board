@@ -19,12 +19,13 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
     ]);
   };
 
+  // Delete the list by the given id
   const deleteList = (id: string) => {
     setGlobalState(globalState.filter((list) => list?.id !== id));
   };
 
+  // loop through lists and replace old list with new list then update global state
   const updateList = (list: ListType) => {
-    // loop through lists and replace old list with new list
     const updatedList = globalState.map((item) => {
       return item.id === list.id ? list : item;
     });

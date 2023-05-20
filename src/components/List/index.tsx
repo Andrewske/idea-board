@@ -137,6 +137,7 @@ const List = ({
           id="title"
           className="edit-item-title"
           initialValue={item.title}
+          shouldFocus={isFocused}
           onChange={handleChange}
         />
         <ResizeTextArea
@@ -144,7 +145,6 @@ const List = ({
           className="list-item-text-area"
           initialValue={item.description}
           onChange={handleChange}
-          shouldFocus={isFocused}
           onSubmit={createItem}
         />
         <span className="list-add-item-footer">
