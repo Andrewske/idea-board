@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { ListType } from '../../types';
 
+import useScroll from '../../hooks/useScroll';
+
 import Header from '../Header';
 import List from '../List';
 import './styles.scss';
@@ -11,6 +13,8 @@ interface BoardTypes {
 }
 
 const Board = ({ globalState, setGlobalState }: BoardTypes) => {
+  const { scrollLeft, scrollRight } = useScroll();
+
   // create a new list and save it in the global state
   const createList = () => {
     setGlobalState([
@@ -36,7 +40,18 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
   return (
     <div className="wrapper">
       <Header createList={createList} />
-      <div className="container">
+      <div
+        className="container"
+        id="board"
+      >
+        <div className="scroll-icon left">
+          <img
+            className="icon menu-icon"
+            src="/icons/icons8-back-arrow-50.png"
+            alt="menu"
+            onClick={scrollLeft}
+          />
+        </div>
         {globalState.length > 0
           ? globalState.map((list, index) => (
               <List
@@ -48,6 +63,14 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
               />
             ))
           : null}
+        <div className="scroll-icon right">
+          <img
+            className="icon menu-icon"
+            src="/icons/icons8-circled-right-50.png"
+            alt="menu"
+            onClick={scrollRight}
+          />
+        </div>
       </div>
     </div>
   );

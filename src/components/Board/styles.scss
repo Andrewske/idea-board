@@ -10,9 +10,41 @@
     height: 100%;
     overflow-x: scroll;
     scroll-behavior: smooth;
+    position: relative;
+    padding: 0rem 2rem;
+    max-width: 100vw;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+
+    .scroll-icon {
+      position: fixed;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      z-index: 2;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+
+      .icon {
+        background-color: #242424;
+        border-radius: 1.25rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .scroll-icon {
+        display: none !important;
+      }
     }
   }
 }
