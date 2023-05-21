@@ -7,7 +7,7 @@ import ListMenu from '../ListMenu';
 import Item from '../Item';
 
 import { ListType, ItemType } from '../../types';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface ListComponent {
   listState: ListType;
@@ -111,10 +111,10 @@ const List = ({
   };
 
   return (
-    <div className="list-container">
-      <span className="list-header">
+    <div className={styles.container}>
+      <span className={styles.header}>
         <input
-          className="list-title"
+          className={styles.title}
           type="text"
           value={title}
           onChange={handleTitleChange}
@@ -126,7 +126,7 @@ const List = ({
         />
       </span>
 
-      <div className="list-items">
+      <div className={styles.items}>
         {listState.items.length > 0 &&
           listState.items.map((item) => (
             <Item
@@ -138,25 +138,25 @@ const List = ({
           ))}
       </div>
 
-      <div className="list-add-item">
+      <div className={styles['list-add-item']}>
         <ResizeTextArea
           id="title"
-          className="edit-item-title"
+          className={styles.title}
           initialValue={item.title}
           shouldFocus={isFocused}
           onChange={handleChange}
         />
         <ResizeTextArea
           id="description"
-          className="list-item-text-area"
+          className={styles.textarea}
           initialValue={item.description}
           onChange={handleChange}
           onSubmit={createItem}
         />
-        <span className="list-add-item-footer">
+        <span className={styles.footer}>
           <button onClick={createItem}>
             <img
-              className="icon"
+              className={styles.icon}
               src="/icons/icons8-add-50-dark-blue.png"
               alt="add-icon"
             />

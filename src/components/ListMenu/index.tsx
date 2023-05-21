@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface ListMenuType {
   sortList: (type: 'title' | 'createdAt', dir: string) => void;
@@ -15,57 +15,57 @@ const ListMenu = ({ sortList, deleteList }: ListMenuType) => {
   };
 
   return (
-    <span className="menu">
+    <span className={styles.container}>
       <img
-        className="icon menu-icon"
+        className={styles.icon}
         src="/icons/icons8-menu-50.png"
         alt="menu"
       />
-      <span className="menu-content">
+      <span className={styles.content}>
         <span
-          className="menu-item"
+          className={styles.item}
           onClick={handleDateClick}
         >
           {dateAsc ? (
             <img
-              className="menu-item-icon"
+              className={styles.icon}
               src="/icons/icons8-numeric-50.png"
               alt="menu"
             />
           ) : (
             <img
-              className="menu-item-icon"
+              className={styles.icon}
               src="/icons/icons8-reversed-numeric-50.png"
               alt="menu"
             />
           )}
         </span>
         <span
-          className="menu-item"
+          className={styles.item}
           onClick={() => sortList('title', 'asc')}
         >
           <img
-            className="menu-item-icon"
+            className={styles.icon}
             src="/icons/icons8-alphabetical-sorting-50.png"
             alt="menu"
           />
         </span>
         <span
-          className="menu-item"
+          className={styles.item}
           onClick={() => sortList('title', 'desc')}
         >
           <img
-            className="menu-item-icon"
+            className={styles.icon}
             src="/icons/icons8-alphabetical-sorting-2-50.png"
             alt="menu"
           />
         </span>
         <span
-          className="menu-item"
+          className={styles.item}
           onClick={deleteList}
         >
           <img
-            className="menu-item-icon"
+            className={styles.icon}
             src="/icons/icons8-delete-30.png"
             alt="delete"
           />

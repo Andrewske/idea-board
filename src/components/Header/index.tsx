@@ -1,8 +1,8 @@
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const Header = ({ createList }: { createList: () => void }) => {
   return (
-    <header className="header">
+    <header className={styles.header}>
       <img
         className="icon"
         src="/icons/icons8-add-50.png"

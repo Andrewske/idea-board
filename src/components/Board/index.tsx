@@ -5,7 +5,7 @@ import useScroll from '../../hooks/useScroll';
 
 import Header from '../Header';
 import List from '../List';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface BoardTypes {
   globalState: ListType[];
@@ -38,17 +38,17 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
   };
 
   return (
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       <Header createList={createList} />
       <div
-        className="container"
+        className={styles.container}
         id="board"
       >
-        <div className="scroll-icon left">
+        <div className={`${styles['scroll-icon']} ${styles['left']}`}>
           <img
-            className="icon menu-icon"
+            className={styles.icon}
             src="/icons/icons8-back-arrow-50.png"
-            alt="menu"
+            alt="scroll-left"
             onClick={scrollLeft}
           />
         </div>
@@ -63,11 +63,11 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
               />
             ))
           : null}
-        <div className="scroll-icon right">
+        <div className={`${styles['scroll-icon']} ${styles['right']}`}>
           <img
-            className="icon menu-icon"
+            className={styles.icon}
             src="/icons/icons8-circled-right-50.png"
-            alt="menu"
+            alt="scroll-right"
             onClick={scrollRight}
           />
         </div>

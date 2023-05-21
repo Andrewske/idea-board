@@ -1,8 +1,10 @@
+@import '../../styles/vars';
+
 .footer {
   position: sticky;
   bottom: 1rem;
   left: 1rem;
-  color: white;
+  color: $white;
 
   display: inline-flex;
   align-items: center;

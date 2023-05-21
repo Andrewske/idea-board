@@ -1,3 +1,5 @@
+@import '../../styles/vars';
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -36,8 +38,15 @@
       }
 
       .icon {
-        background-color: #242424;
+        height: 1.25rem;
+        width: 1.25rem;
+        background-color: $black;
         border-radius: 1.25rem;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.25);
+        }
       }
     }
 

@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import { ItemType } from '../../types';
 
 import ResizeTextArea from '../ResizeTextArea';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 interface ListItemType {
   data: ItemType;
@@ -20,39 +20,39 @@ const ListItem = ({ data, editItem, deleteItem }: ListItemType) => {
 
   return (
     <div
-      className="list-item"
+      className={styles.container}
       id={data.id}
     >
       <ResizeTextArea
         id="title"
-        className="edit-item-title"
+        className={styles.title}
         initialValue={data.title}
         onChange={handleChange}
         colorShouldChange={true}
       />
       <ResizeTextArea
         id="description"
-        className="edit-item-text-area"
+        className={styles.textarea}
         initialValue={data.description}
         onChange={handleChange}
         colorShouldChange={true}
       />
       {openTime && (
-        <div className="list-item-time">
+        <div className={styles.time}>
           <p>Created At: {format(data.createdAt, 'yyyy-MM-dd h:mm a')}</p>
           <p>Updated At: {format(data.updatedAt, 'yyyy-MM-dd h:mm a')}</p>
         </div>
       )}
-      <span className="list-item-footer">
+      <span className={styles.footer}>
         <img
-          className="icon"
+          className={styles.icon}
           src="/icons/icons8-clock-50.png"
           alt="time"
           onClick={() => setOpenTime(!openTime)}
         />
 
         <img
-          className="icon"
+          className={styles.icon}
           src="/icons/icons8-delete-30.png"
           alt="delete"
           onClick={() => deleteItem(data.id)}

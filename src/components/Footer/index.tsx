@@ -1,8 +1,8 @@
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <a
         href="https://github.com/Andrewske/idea-board"
         referrerPolicy="no-referrer"

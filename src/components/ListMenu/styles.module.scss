@@ -1,0 +1,52 @@
+@import '../../styles/vars';
+
+.container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 0;
+  gap: 1rem;
+
+  &:hover .content {
+    display: flex;
+    left: 1rem;
+    top: -1rem;
+  }
+
+  .content {
+    z-index: 2;
+    display: none;
+    background-color: $dark-blue;
+    width: max-content;
+    padding: 0.5rem 0.5rem;
+    font-size: 0.85rem;
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $white;
+      padding: 0.5rem 1rem;
+      width: 100%;
+
+      .icon {
+        height: 0.85rem;
+        width: 0.85rem;
+      }
+
+      &:hover {
+        background-color: $lighter-blue;
+      }
+    }
+  }
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.25);
+  }
+}
