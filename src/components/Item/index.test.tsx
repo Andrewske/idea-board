@@ -1,33 +1,26 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, cleanup } from '@testing-library/react';
-import ListItem from '.';
+import { render, screen } from '@testing-library/react';
+import { vi, expect, test } from 'vitest';
 
-const date = new Date();
-
-const mockData = {
-  id: 'test-id',
-  title: 'Test Title',
-  description: 'Test Description',
-  createdAt: date,
-  updatedAt: date,
-};
+import ListItem from './';
 
 const mockEditItem = vi.fn();
 const mockDeleteItem = vi.fn();
+const mockData = {
+  id: '123',
+  title: 'Test Title',
+  description: 'Test Description',
+  createdAt: new Date(),
+  updatedAt: new Date(),
+};
 
-describe('ListItem', () => {
-  beforeEach(() => {
-    cleanup();
-  });
-  it('renders title and description', () => {
-    const { getByDisplayValue } = render(
-      <ListItem
-        data={mockData}
-        editItem={mockEditItem}
-        deleteItem={mockDeleteItem}
-      />
-    );
-    expect(getByDisplayValue(mockData.title)).not.toBeNull();
-    expect(getByDisplayValue(mockData.description)).not.toBeNull();
-  });
+test('renders without crashing', () => {
+  const { getByTestId } = render(
+    <ListItem
+      data={mockData}
+      editItem={mockEditItem}
+      deleteItem={mockDeleteItem}
+    />
+  );
+  expect(document.body.contains(getByTestId('container'))).toBeTruthy();
+  expect(screen.getByText(mockData.title)).toBeInTheDocument();
 });

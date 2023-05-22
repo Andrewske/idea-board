@@ -95,17 +95,7 @@ const List = ({
       return;
     }
 
-    const sortedItems = listState.items.slice().sort((a, b) => {
-      if (type === 'createdAt') {
-        return dir === 'asc'
-          ? new Date(a[type]).valueOf() - new Date(b[type]).valueOf()
-          : new Date(b[type]).valueOf() - new Date(a[type]).valueOf();
-      } else {
-        return dir === 'asc'
-          ? a[type].localeCompare(b[type])
-          : b[type].localeCompare(a[type]);
-      }
-    });
+    const sortedItems = sortItems();
 
     setListState({ ...listState, items: sortedItems });
   };

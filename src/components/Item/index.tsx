@@ -7,7 +7,7 @@ import styles from './styles.module.scss';
 
 interface ListItemType {
   data: ItemType;
-  editItem: (data: ItemType) => void;
+  editItem: (item: ItemType) => void;
   deleteItem: (id: string) => void;
 }
 
@@ -21,6 +21,7 @@ const ListItem = ({ data, editItem, deleteItem }: ListItemType) => {
   return (
     <div
       className={styles.container}
+      data-testid="container"
       id={data.id}
     >
       <ResizeTextArea
