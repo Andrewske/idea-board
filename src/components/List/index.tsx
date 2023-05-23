@@ -143,23 +143,22 @@ const List = ({
           id="title"
           className={styles.title}
           initialValue={item.title}
-          shouldFocus={isFocused}
           onChange={handleChange}
         />
         <ResizeTextArea
           id="description"
+          shouldFocus={true}
           className={styles.textarea}
           initialValue={item.description}
           onChange={handleChange}
           onSubmit={createItem}
         />
         <span className={styles.footer}>
-          <button onClick={createItem}>
-            <img
-              className={styles.icon}
-              src="/icons/icons8-add-50-dark-blue.png"
-              alt="add-icon"
-            />
+          <button
+            onClick={createItem}
+            className={styles.button}
+          >
+            Add Item
           </button>
           <p className="char-length">{item.description.length}</p>
         </span>

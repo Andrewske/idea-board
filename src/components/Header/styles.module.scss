@@ -1,6 +1,15 @@
+@import '../../styles/vars';
+
 .header {
   height: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+button {
+  text-transform: uppercase;
+  border: solid 1px $white !important;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem !important;
 }

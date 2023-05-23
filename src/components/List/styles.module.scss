@@ -98,11 +98,21 @@
 }
 
 .icon {
-  height: 1rem;
-  width: 1rem;
+  height: 1.25rem;
+  width: 1.25rem;
   cursor: pointer;
 
   &:hover {
     transform: scale(1.25);
+  }
+}
+.button {
+  font-size: 0.85rem;
+  border: 1px solid $dark-blue !important;
+
+  &:hover,
+  &:focus {
+    background-color: $dark-blue !important;
+    color: $white !important;
   }
 }

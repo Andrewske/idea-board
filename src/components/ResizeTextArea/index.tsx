@@ -42,7 +42,7 @@ const ResizeTextArea = ({
     <textarea
       ref={textareaRef}
       id={id}
-      autoFocus={shouldFocus}
+      autoFocus={shouldFocus ? true : false}
       className={className}
       style={{
         backgroundColor: 'inherit',
