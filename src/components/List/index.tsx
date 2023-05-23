@@ -13,7 +13,6 @@ interface ListComponent {
   listState: ListType;
   setListState: (listState: ListType) => void;
   deleteList: (id: string) => void;
-  isFocused: boolean;
 }
 
 const initialItemState = {
@@ -24,24 +23,9 @@ const initialItemState = {
   updatedAt: null,
 };
 
-const List = ({
-  listState,
-  setListState,
-  deleteList,
-  isFocused,
-}: ListComponent) => {
+const List = ({ listState, setListState, deleteList }: ListComponent) => {
   const [item, setItem] = useState(initialItemState);
   const { id, title }: { id: string; title: string } = listState;
-
-  // Can maybe use autofocus instead, so if autofocus = isFocused
-  const titleRef = useRef<HTMLInputElement>(null);
-
-  // Focus on the new item description for the first list on the page
-  useEffect(() => {
-    if (isFocused && titleRef.current) {
-      titleRef.current.focus();
-    }
-  }, [isFocused]);
 
   // Change the list title
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

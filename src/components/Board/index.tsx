@@ -53,13 +53,12 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
           />
         </div>
         {globalState.length > 0
-          ? globalState.map((list, index) => (
+          ? globalState.map((list) => (
               <List
                 key={list.id}
                 listState={list}
                 setListState={updateList}
                 deleteList={deleteList}
-                isFocused={index === 0}
               />
             ))
           : null}
