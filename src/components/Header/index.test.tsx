@@ -1,4 +1,4 @@
-import { vi, describe, it, expect, beforeAll } from 'vitest';
+import { vi, describe, test, expect, beforeAll } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
 import Header from '.';
@@ -11,11 +11,11 @@ describe('Header', () => {
     render(<Header createList={createList} />);
   });
 
-  it('renders Add List button', () => {
+  test('renders Add List button', () => {
     expect(screen.getByText('Add List')).toBeDefined();
   });
 
-  it('calls createList when clicked', async () => {
+  test('calls createList when clicked', async () => {
     const user = userEvent.setup();
 
     await user.click(screen.getByRole('button'));

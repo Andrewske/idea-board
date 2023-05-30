@@ -11,7 +11,7 @@ const Footer = () => {
         <img
           className="icon"
           src="/icons/icons8-github-50.png"
-          alt="add"
+          alt="visit-github-repo"
         />
       </a>
     </footer>

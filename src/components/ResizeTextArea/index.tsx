@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
-import handleKeyUp from '../../utils/handleKeyUp';
+import { handleKeyUp } from '../../utils';
 
 interface TextAreaType {
   id: string;

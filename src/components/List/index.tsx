@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-import handleKeyUp from '../../utils/handleKeyUp';
+import { handleKeyUp } from '../../utils';
 import ResizeTextArea from '../ResizeTextArea';
 import ListMenu from '../ListMenu';
 import Item from '../Item';

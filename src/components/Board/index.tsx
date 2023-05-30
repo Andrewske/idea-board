@@ -8,33 +8,33 @@ import List from '../List';
 import styles from './styles.module.scss';
 
 interface BoardTypes {
-  globalState: ListType[];
-  setGlobalState: (globalState: ListType[]) => void;
+  listsState: ListType[];
+  setListsState: (listsState: ListType[]) => void;
 }
 
-const Board = ({ globalState, setGlobalState }: BoardTypes) => {
+const Board = ({ listsState, setListsState }: BoardTypes) => {
   const { scrollLeft, scrollRight } = useScroll();
 
   // create a new list and save it in the global state
   const createList = () => {
-    setGlobalState([
-      ...globalState,
+    setListsState([
+      ...listsState,
       { id: uuidv4(), title: 'new title', items: [] },
     ]);
   };
 
   // Delete the list by the given id
   const deleteList = (id: string) => {
-    setGlobalState(globalState.filter((list) => list?.id !== id));
+    setListsState(listsState.filter((list) => list?.id !== id));
   };
 
   // loop through lists and replace old list with new list then update global state
   const updateList = (list: ListType) => {
-    const updatedList = globalState.map((item) => {
+    const updatedList = listsState.map((item) => {
       return item.id === list.id ? list : item;
     });
 
-    setGlobalState(updatedList);
+    setListsState(updatedList);
   };
 
   return (
@@ -52,8 +52,8 @@ const Board = ({ globalState, setGlobalState }: BoardTypes) => {
             onClick={scrollLeft}
           />
         </div>
-        {globalState.length > 0
-          ? globalState.map((list) => (
+        {listsState.length > 0
+          ? listsState.map((list) => (
               <List
                 key={list.id}
                 listState={list}
