@@ -1,7 +1,7 @@
 import { vi, describe, beforeAll, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import { ListType, ItemType } from '../../types';
+import { ListType } from '../../types';
 import Board from '.';
 
 const mockListsState: ListType[] = [
