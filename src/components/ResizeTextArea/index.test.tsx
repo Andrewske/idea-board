@@ -1,5 +1,11 @@
 import { vi, describe, test, expect, afterEach } from 'vitest';
-import { render, screen, cleanup, fireEvent } from '@testing-library/react';
+import {
+  render,
+  screen,
+  cleanup,
+  fireEvent,
+  waitFor,
+} from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
 import ResizeTextArea from '.';
 
@@ -93,7 +99,7 @@ describe('ResizeTextArea', () => {
   });
 
   //   test('textarea should resize when text is too long', async () => {
-  //     render(
+  //     const { rerender } = render(
   //       <ResizeTextArea
   //         id="test-textarea-id"
   //         className="test-textarea-className"
@@ -102,16 +108,24 @@ describe('ResizeTextArea', () => {
   //       />
   //     );
 
-  //     const textarea = screen.getByRole('textbox');
+  //     const initialHeight = screen.getByRole('textbox').style.height;
 
-  //     const initialHeight = textarea.style.height;
+  //     const longTextValue =
+  //       'This text is 140 characters long. This text is 140 characters long. This text is 140 characters long. This text is 140 characters long. This';
+  //     rerender(
+  //       <ResizeTextArea
+  //         id="test-textarea-id"
+  //         className="test-textarea-className"
+  //         initialValue={longTextValue}
+  //         onChange={testOnChange}
+  //       />
+  //     );
+
+  //     const textarea = await waitFor(() =>
+  //       screen.findByDisplayValue(longTextValue)
+  //     );
 
   //     await user.click(textarea);
-
-  //     await user.type(
-  //       textarea,
-  //       'This text is 140 characters long. This text is 140 characters long. This text is 140 characters long. This text is 140 characters long. This'
-  //     );
 
   //     console.log(textarea);
 
