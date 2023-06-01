@@ -91,4 +91,30 @@ describe('ResizeTextArea', () => {
 
     expect(document.activeElement === input).toBeTruthy();
   });
+
+  //   test('textarea should resize when text is too long', async () => {
+  //     render(
+  //       <ResizeTextArea
+  //         id="test-textarea-id"
+  //         className="test-textarea-className"
+  //         initialValue=""
+  //         onChange={testOnChange}
+  //       />
+  //     );
+
+  //     const textarea = screen.getByRole('textbox');
+
+  //     const initialHeight = textarea.style.height;
+
+  //     await user.click(textarea);
+
+  //     await user.type(
+  //       textarea,
+  //       'This text is 140 characters long. This text is 140 characters long. This text is 140 characters long. This text is 140 characters long. This'
+  //     );
+
+  //     console.log(textarea);
+
+  //     expect(textarea.style.height).not.to.equal(initialHeight);
+  //   });
 });
