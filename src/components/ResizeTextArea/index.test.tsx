@@ -1,11 +1,5 @@
 import { vi, describe, test, expect, afterEach } from 'vitest';
-import {
-  render,
-  screen,
-  cleanup,
-  fireEvent,
-  waitFor,
-} from '@testing-library/react';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
 import ResizeTextArea from '.';
 
