@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import usePersistState from './hooks/usePersistState';
 
 function App() {
-  const [globalState, setGlobalState] = usePersistState({
+  const [listsState, setListsState] = usePersistState({
     storeKey: 'global',
     initialState: [],
   });
@@ -17,8 +17,8 @@ function App() {
   return (
     <>
       <Board
-        globalState={globalState}
-        setGlobalState={setGlobalState}
+        listsState={listsState}
+        setListsState={setListsState}
       />
       <Footer />
     </>

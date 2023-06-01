@@ -52,7 +52,7 @@ const Board = ({ listsState, setListsState }: BoardTypes) => {
             onClick={scrollLeft}
           />
         </div>
-        {listsState.length > 0
+        {listsState?.length > 0
           ? listsState.map((list) => (
               <List
                 key={list.id}
