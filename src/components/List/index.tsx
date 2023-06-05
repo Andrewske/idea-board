@@ -98,6 +98,7 @@ const List = ({ listState, setListState, deleteList }: ListComponent) => {
     <div className={styles.container}>
       <span className={styles.header}>
         <input
+          placeholder={'List Title'}
           className={styles.title}
           type="text"
           value={title}

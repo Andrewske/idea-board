@@ -1,25 +1,20 @@
-import { vi, describe, test, expect, beforeAll } from 'vitest';
+import { vi, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { default as userEvent } from '@testing-library/user-event';
 import Header from '.';
 
-const createList = vi.fn();
+test('renders Add List button', () => {
+  const createList = vi.fn();
+  render(<Header createList={createList} />);
+  expect(screen.getByText('Add List')).toBeDefined();
+});
 
-describe('Header', () => {
-  // Render the component with the createList function before the tests
-  beforeAll(() => {
-    render(<Header createList={createList} />);
-  });
+test('calls createList when clicked', async () => {
+  const createList = vi.fn();
+  render(<Header createList={createList} />);
+  const user = userEvent.setup();
 
-  test('renders Add List button', () => {
-    expect(screen.getByText('Add List')).toBeDefined();
-  });
+  await user.click(screen.getByRole('button'));
 
-  test('calls createList when clicked', async () => {
-    const user = userEvent.setup();
-
-    await user.click(screen.getByRole('button'));
-
-    expect(createList).toHaveBeenCalled();
-  });
+  expect(createList).toHaveBeenCalled();
 });

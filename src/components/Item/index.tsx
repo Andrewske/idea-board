@@ -20,6 +20,7 @@ const ListItem = ({ data, editItem, deleteItem }: ListItemType) => {
 
   return (
     <div
+      title={data.id}
       className={styles.container}
       id={data.id}
     >

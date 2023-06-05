@@ -1,4 +1,4 @@
-import { vi, describe, beforeAll, test, expect } from 'vitest';
+import { vi, test, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import { ListType } from '../../types';
@@ -21,19 +21,14 @@ const mockListsState: ListType[] = [
 ];
 const mockSetListsState: () => void = vi.fn();
 
-describe('Board', () => {
-  beforeAll(() => {
-    render(
-      <Board
-        listsState={mockListsState}
-        setListsState={mockSetListsState}
-      />
-    );
-  });
-
-  // Make sure that a list renders correctly
-  test('should render a list and item correctly', () => {
-    expect(screen.findByText('testList')).toBeDefined();
-    expect(screen.findByText('Test Item')).toBeDefined();
-  });
+// Make sure that a list renders correctly
+test('should render a list and item correctly', () => {
+  render(
+    <Board
+      listsState={mockListsState}
+      setListsState={mockSetListsState}
+    />
+  );
+  expect(screen.findByText('testList')).toBeDefined();
+  expect(screen.findByText('Test Item')).toBeDefined();
 });
